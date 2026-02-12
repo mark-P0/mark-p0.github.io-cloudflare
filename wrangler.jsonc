@@ -1,0 +1,42 @@
+/**
+ * https://docs.astro.build/en/guides/deploy/cloudflare/#how-to-deploy-with-wrangler
+ * https://developers.cloudflare.com/workers/wrangler/configuration/#sample-wrangler-configuration
+ */
+
+{
+	"$schema": "./node_modules/wrangler/config-schema.json",
+
+	"name": "mark-p0-cloudflare",
+	"compatibility_date": "2026-02-12",
+	"assets": {
+		"directory": "./dist"
+	}
+
+	// "main": "src/index.js",
+	// "workers_dev": false,
+	// "route": {
+	// 	"pattern": "example.org/*",
+	// 	"zone_name": "example.org"
+	// },
+	// "kv_namespaces": [
+	// 	{
+	// 		"binding": "<MY_NAMESPACE>",
+	// 		"id": "<KV_ID>"
+	// 	}
+	// ],
+	// "env": {
+	// 	"staging": {
+	// 		"name": "my-worker-staging",
+	// 		"route": {
+	// 			"pattern": "staging.example.org/*",
+	// 			"zone_name": "example.org"
+	// 		},
+	// 		"kv_namespaces": [
+	// 			{
+	// 				"binding": "<MY_NAMESPACE>",
+	// 				"id": "<STAGING_KV_ID>"
+	// 			}
+	// 		]
+	// 	}
+	// }
+}

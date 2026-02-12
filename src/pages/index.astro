@@ -1,0 +1,69 @@
+---
+import Contacts from "../components/astro/Contacts.astro";
+import OGPMetaTags from "../components/astro/OGPMetaTags.astro";
+import Profile from "../components/astro/Profile.astro";
+import { Navbar } from "../components/react/Navbar.tsx";
+import { Scrollable } from "../components/react/Scrollable.tsx";
+import { ProjectList } from "../components/solid/ProjectList.tsx";
+import { env } from "../core/env";
+import { SECTION_RECORDS } from "../section-records.ts";
+import "../styles/fonts.css";
+import "../styles/tailwind.css";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={env.HTML_DESCRIPTION} />
+    <OGPMetaTags />
+
+    {/* Generated from https://icon.kitchen/ */}
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <title>{env.AUTHOR_NAME_LONG}</title>
+  </head>
+
+  <body
+    class="font-text text-primary lowercase selection:bg-primary selection:text-white"
+  >
+    <Scrollable client:only="react">
+      <Navbar client:only="react" />
+      <header
+        id={SECTION_RECORDS[0].id}
+        class="min-h-screen grid items-center bg-[url('/texture.png')] bg-white"
+      >
+        <Profile />
+      </header>
+
+      <section
+        id={SECTION_RECORDS[1].id}
+        class="min-h-screen grid items-center bg-[url('/texture.png')] bg-white"
+      >
+        <article
+          class="container mx-auto py-12 px-8 min-h-full grid grid-rows-[auto_1fr] gap-6"
+        >
+          <h2 class="font-title font-extrabold text-5xl">
+            {SECTION_RECORDS[1].title}
+          </h2>
+          <ProjectList client:load />
+        </article>
+      </section>
+
+      <footer
+        id={SECTION_RECORDS[2].id}
+        class="min-h-screen grid items-center bg-primary/90 text-white selection:!bg-white selection:!text-primary"
+      >
+        <Contacts />
+        <img
+          src={env.AUTHOR_BANNER_IMAGE_LINK}
+          alt={env.AUTHOR_BANNER_IMAGE_ALT}
+          class="-z-10 fixed top-0 h-full w-full object-cover object-[25%]"
+        />
+      </footer>
+    </Scrollable>
+  </body>
+</html>

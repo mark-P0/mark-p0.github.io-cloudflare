@@ -1,0 +1,75 @@
+---
+import {
+  BsEnvelopeFill,
+  BsGeoAltFill,
+  BsGithub,
+  BsLinkedin,
+  BsTelephoneFill,
+} from "solid-icons/bs";
+import { env } from "../../core/env";
+import { SECTION_RECORDS } from "../../section-records";
+---
+
+<article class="container mx-auto py-12 px-8 grid gap-4 text-end">
+  <h2 class="font-title font-extrabold text-5xl md:text-6xl lg:text-7xl">
+    {SECTION_RECORDS[2].title}
+  </h2>
+
+  <p class="text-2xl lg:text-3xl tracking-tight md:tracking-normal">
+    <span class="inline md:hidden">Interested? Please reach out!</span>
+    <span class="hidden md:inline">
+      Do our interests align? Please get in touch!
+    </span>
+  </p>
+
+  <address class="not-italic">
+    <ul class="font-title font-thin text-2xl">
+      <li class="flex flex-row-reverse items-center gap-4">
+        <BsGeoAltFill />
+        <span class="inline md:hidden">
+          {env.AUTHOR_ADDRESS_SHORT}
+        </span>
+        <span class="hidden md:inline">
+          {env.AUTHOR_ADDRESS_LONG}
+        </span>
+      </li>
+      <li class="flex flex-row-reverse items-center gap-4">
+        <BsTelephoneFill />
+        <span class="text-xl">{env.AUTHOR_CONTACT_NUMBER}</span>
+      </li>
+    </ul>
+  </address>
+
+  <address class="not-italic">
+    <ul class="-mr-2 flex flex-row-reverse gap-2">
+      <a
+        href={`mailto:${env.AUTHOR_EMAIL}`}
+        target="_blank"
+        class="block p-2 rounded transition hover:bg-white hover:text-primary active:scale-90"
+      >
+        <BsEnvelopeFill class="h-8 w-8" />
+        <span class="sr-only">Send email to {env.AUTHOR_EMAIL}</span>
+      </a>
+      <a
+        href={env.AUTHOR_LINKEDIN_LINK}
+        target="_blank"
+        class="block p-2 rounded transition hover:bg-white hover:text-primary active:scale-90"
+      >
+        <BsLinkedin class="h-8 w-8" />
+        <span class="sr-only"
+          >Go to {env.AUTHOR_NAME_LONG}'s LinkedIn profile</span
+        >
+      </a>
+      <a
+        href={env.AUTHOR_GITHUB_LINK}
+        target="_blank"
+        class="block p-2 rounded transition hover:bg-white hover:text-primary active:scale-90"
+      >
+        <BsGithub class="h-8 w-8" />
+        <span class="sr-only"
+          >Go to {env.AUTHOR_NAME_LONG}'s GitHub profile</span
+        >
+      </a>
+    </ul>
+  </address>
+</article>

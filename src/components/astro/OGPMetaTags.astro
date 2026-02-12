@@ -1,0 +1,11 @@
+---
+import { env } from "../../core/env";
+---
+
+{/* Required tags as per https://ogp.me/ */}
+<meta property="og:title" content={env.AUTHOR_NAME_LONG} />
+<meta property="og:type" content="website" />
+<meta property="og:image" content={env.AUTHOR_BANNER_IMAGE_LINK} />
+<meta property="og:url" content={env.OGP_URL} />
+
+<meta property="og:description" content={env.HTML_DESCRIPTION} />

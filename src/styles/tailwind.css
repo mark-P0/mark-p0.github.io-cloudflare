@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*  Use this space as a "scratchpad" for writing CSS classes before moving them to a Tailwind plugin.
+ *
+ *  Plugins are preferred for IntelliSense in source files.
+ *  E.g. can make sure the class name is correct!
+ *  With a hover preview of the actual class contents.
+ */

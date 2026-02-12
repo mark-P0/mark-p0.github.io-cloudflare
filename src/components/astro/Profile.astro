@@ -1,0 +1,119 @@
+---
+import { BsGithub, BsLinkedin } from "solid-icons/bs";
+import { env } from "../../core/env";
+import { SECTION_RECORDS } from "../../section-records";
+---
+
+<article
+  class="h-fit container mx-auto py-12 px-8 grid md:grid-cols-2 lg:grid-cols-8"
+>
+  <div class="lg:col-start-4 lg:col-span-5 lg:row-start-3">
+    <h1 class="font-title font-thin text-5xl lg:text-8xl lg:pl-6 lg:pt-6">
+      Hi! I’m
+      <span class="font-extrabold">{env.AUTHOR_NAME_SHORT}.</span>
+    </h1>
+  </div>
+
+  <div
+    class="md:col-start-2 md:row-start-2 lg:col-start-4 lg:col-span-5 lg:row-start-2 lg:self-end"
+  >
+    <section
+      class="bg-white border-primary border-2 border-t-0 border-l-0 rounded-lg md:rounded-bl-none p-4 md:pl-6 mt-6 md:mt-0"
+    >
+      <h2 class="mb-2 font-title font-extrabold text-3xl">
+        <a href="https://en.wikipedia.org/wiki/Whoami" target="_blank">
+          {SECTION_RECORDS[0].title}
+        </a>
+      </h2>
+
+      <div class="space-y-1">
+        <p>
+          I’m a
+          <span class="font-bold">web and software developer</span>
+          <span class="capitalize">
+            (<a href="https://en.wikipedia.org/wiki/Impostor_syndrome">Soon</a
+            ><a
+              href="https://www.urbandictionary.com/define.php?term=soon%20%28tm%29"
+              >™</a
+            >)
+          </span>
+          who studied
+          <span class="italic">computer engineering.</span>
+        </p>
+
+        <p>
+          I craft experiences using tools in
+          <span class="font-bold">JS</span>
+          |
+          <span class="font-bold">TS</span>
+          &
+          <span class="font-bold">Python</span>
+          for both mobile and the web.
+        </p>
+
+        <p>
+          <span class="text-primary/25">PS: I dabble in data science too!</span>
+        </p>
+      </div>
+
+      <address class="not-italic">
+        <ul class="mt-6 flex flex-row-reverse items-center">
+          <li class="flex">
+            <a
+              href={env.AUTHOR_RESUME_LINK}
+              target="_blank"
+              class="font-title font-bold text-xl rounded p-2 py-3 group/resume transition hover:bg-primary active:scale-90"
+            >
+              <span
+                class="bg-primary text-white rounded p-2 py-1 transition group-hover/resume:bg-white group-hover/resume:text-primary"
+              >
+                Resumé
+              </span>
+            </a>
+          </li>
+          <li>
+            <a
+              href={env.AUTHOR_LINKEDIN_LINK}
+              target="_blank"
+              class="block p-2 rounded transition hover:bg-primary hover:text-white active:scale-90"
+            >
+              <BsLinkedin class="h-8 w-8" />
+              <span class="sr-only"
+                >Go to {env.AUTHOR_NAME_LONG}'s LinkedIn profile</span
+              >
+            </a>
+          </li>
+          <li>
+            <a
+              href={env.AUTHOR_GITHUB_LINK}
+              target="_blank"
+              class="block p-2 rounded transition hover:bg-primary hover:text-white active:scale-90"
+            >
+              <BsGithub class="h-8 w-8" />
+              <span class="sr-only"
+                >Go to {env.AUTHOR_NAME_LONG}'s GitHub profile</span
+              >
+            </a>
+          </li>
+        </ul>
+      </address>
+    </section>
+  </div>
+
+  <div
+    class="row-start-2 lg:col-start-1 lg:col-span-3 lg:row-start-1 lg:row-span-3 lg:self-end"
+  >
+    <figure
+      class="relative w-full aspect-[3/4] bg-primary/50 rounded-lg overflow-hidden"
+    >
+      <div class="absolute w-full h-full grid place-items-center">
+        <img
+          src={env.AUTHOR_PORTRAIT_LINK}
+          alt={env.AUTHOR_NAME_LONG}
+          class="w-full h-full"
+        />
+      </div>
+      <figcaption class="sr-only">{env.AUTHOR_NAME_LONG}</figcaption>
+    </figure>
+  </div>
+</article>
